@@ -14,7 +14,7 @@ public class Ride
     public int DriverId { get; private set; }
     public int PassengerId { get; private set; }
     
-    public int Cost { get; private set; }
+    public decimal Cost { get; private set; }
     
     public string PickupLocation { get; private set; }
     public string DropOffLocation { get; private set; }
@@ -24,4 +24,12 @@ public class Ride
     public RideStatus Status { get; private set; }
 
     public void SetStatus(RideStatus status) => Status = status;
+    
+    public Ride(int driverId, int passengerId, decimal cost)
+    {
+        DriverId = driverId;
+        PassengerId = passengerId;
+        Cost = cost;
+        CreatedAt = DateTime.UtcNow;
+    }
 }

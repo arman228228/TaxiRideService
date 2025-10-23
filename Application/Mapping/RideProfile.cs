@@ -10,5 +10,8 @@ public class RideProfile : Profile
     {
         CreateMap<RideCreateDto, Ride>();
         CreateMap<Ride, RideCreateDto>();
+        
+        CreateMap<RideDto, Ride>();
+        CreateMap<Ride, RideDto>();
     }
 }

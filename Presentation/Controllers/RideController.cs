@@ -17,7 +17,7 @@ public class RideController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Ride>> CreateAsync(RideCreateDto rideDto)
+    public async Task<ActionResult<int>> CreateAsync(RideCreateDto rideDto)
     {
         var createdRide = await _rideService.CreateAsync(rideDto);
         return Ok(createdRide);
@@ -38,21 +38,21 @@ public class RideController : ControllerBase
         return Ok(rides);
     }
 
-    [HttpPut("start")]
+    [HttpPut("start/{id}")]
     public async Task<ActionResult> StartRideAsync(int id)
     {
         await _rideService.StartRideAsync(id);
         return Ok();
     }
     
-    [HttpPut("cancel")]
+    [HttpPut("cancel/{id}")]
     public async Task<ActionResult> CancelRideAsync(int id)
     {
         await _rideService.CancelRideAsync(id);
         return Ok();
     }
     
-    [HttpPut("complete")]
+    [HttpPut("complete/{id}")]
     public async Task<ActionResult> CompleteRideAsync(int id)
     {
         await _rideService.CompleteRideAsync(id);
