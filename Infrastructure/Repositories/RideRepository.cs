@@ -16,7 +16,7 @@ public class RideRepository : IRideRepository
     
     public async Task<Ride> CreateAsync(Ride ride)
     {
-        _context.Add(ride);
+        await _context.Rides.AddAsync(ride);
         await _context.SaveChangesAsync();
         return ride;
     }

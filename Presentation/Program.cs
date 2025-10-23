@@ -16,7 +16,12 @@ builder.Services.AddScoped<IRideRepository, RideRepository>();
 
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAutoMapper(typeof(RideProfile));
+builder.Services.AddAutoMapper(cfg => { }, typeof(RideProfile));
+
+builder.Services.AddHttpClient<IUserApiClientService, UserApiService>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5031");
+});
 
 var app = builder.Build();
 
